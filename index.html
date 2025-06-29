@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudySprint - Your AI Study Buddy</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0b1629;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    header.hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1606761569405-6542dc0461c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+    }
+
+    header.hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(10, 20, 40, 0.7);
+      z-index: 0;
+    }
+
+    header.hero h1 {
+      font-size: 3.5rem;
+      color: #4db8ff;
+      z-index: 1;
+      margin-bottom: 20px;
+      animation: fadeInDown 2s ease;
+    }
+
+    header.hero p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1.2rem;
+      color: #ddd;
+      z-index: 1;
+      animation: fadeInUp 2s ease;
+    }
+
+    header.hero button {
+      background: #4db8ff;
+      color: #0b1629;
+      border: none;
+      padding: 15px 35px;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      z-index: 1;
+    }
+
+    header.hero button:hover {
+      background: #1c86c3;
+      transform: scale(1.1);
+    }
+
+    section.features {
+      background: #11182b;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .features h2 {
+      color: #4db8ff;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: #1c2e4a;
+      padding: 30px;
+      border-radius: 12px;
+      width: 300px;
+      transition: all 0.3s;
+    }
+
+    .feature-card img {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+
+    .feature-card h3 {
+      color: #4db8ff;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: #bbb;
+      font-size: 0.95rem;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      background: #2a4772;
+    }
+
+    section.flow {
+      background: #0b1629;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    section.flow h2 {
+      color: #4db8ff;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    .flow-steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .flow-step {
+      background: #1c2e4a;
+      padding: 20px;
+      border-radius: 12px;
+      width: 260px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .flow-step:hover {
+      transform: translateY(-8px);
+      background: #2a4772;
+    }
+
+    .flow-step img {
+      width: 50px;
+      margin-bottom: 15px;
+    }
+
+    .flow-step h4 {
+      color: #4db8ff;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .flow-step p {
+      color: #bbb;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background: #0a1428;
+      color: #777;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    @media (max-width: 768px) {
+      header.hero h1 {
+        font-size: 2.2rem;
+      }
+      header.hero p {
+        font-size: 1rem;
+      }
+      .feature-card,
+      .flow-step {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <h1>StudySprint</h1>
+    <p>Your smart AI assistant that helps you revise, summarize topics, and test your knowledge instantly. Study smarter, not harder!</p>
+    <button id="startChat">Get Started</button>
+  </header>
+
+  <section class="features">
+    <h2>Why StudySprint?</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Summary Icon" />
+        <h3>Quick Summaries</h3>
+        <p>Instantly get crisp, clear topic summaries for fast revision and exam prep.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2811/2811806.png" alt="Quiz Icon" />
+        <h3>Fun Quizzes</h3>
+        <p>Test your knowledge on the spot with interactive, engaging quizzes.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3771/3771567.png" alt="Chatbot Icon" />
+        <h3>Personal Study Coach</h3>
+        <p>Chat with an AI assistant that guides your learning and keeps you motivated.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="flow">
+    <h2>How It Works</h2>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <img src="https://cdn-icons-png.flaticon.com/512/2997/2997333.png" alt="Step 1">
+        <h4>Start Chat</h4>
+        <p>Click <strong>OmniDimension Agent</strong> button to launch StudySprint.</p>
+      </div>
+      <div class="flow-step">
+        <img src="https://cdn-icons-png.flaticon.com/512/929/929426.png" alt="Step 2">
+        <h4>Select Subject</h4>
+        <p>Choose Science, History, or any available subject to begin revising.</p>
+      </div>
+      <div class="flow-step">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" alt="Step 3">
+        <h4>Pick a Topic</h4>
+        <p>Pick a topic from the list offered for the chosen subject.</p>
+      </div>
+      <div class="flow-step">
+        <img src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png" alt="Step 4">
+        <h4>Get Summary & Quiz</h4>
+        <p>Receive a crisp summary and take a quiz to test yourself.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 StudySprint. All rights reserved.
+  </footer>
+
+  <!-- Your provided script -->
+<script id="omnidimension-web-widget" async src="https://backend.omnidim.io/web_widget.js?secret_key=ffbed92b548a3d4add74c733919336ef" ></script>
+  <script>
+  document.getElementById("startChat").addEventListener("click", () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+
+
+</body>
+</html>
