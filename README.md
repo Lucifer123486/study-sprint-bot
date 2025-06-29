@@ -34,7 +34,7 @@ StudySprint Bot is an AI-powered educational chatbot that helps students revise 
 
 ## 🎥 Demo Video
 
-*(Add your demo video link here, e.g. YouTube, Loom, Drive)*
+*([Add your demo video link here, e.g. YouTube, Loom, Drive](https://www.linkedin.com/posts/mayur-patil-1451ba2b1_hackathon-edtech-ai-activity-7345137222230142976-_QQE?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAEr1W0UBlZfvtOeMJJpssQIwrAxAz1nbDUM&utm_campaign=copy_link))*
 
 ---
 
